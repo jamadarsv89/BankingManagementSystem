@@ -1,6 +1,8 @@
 ﻿using BankingManagementSystem.Data;
+using BankingManagementSystem.Data.Interfaces;
 using BankingManagementSystem.Data.Models;
 using Microsoft.AspNetCore.Mvc;
+using System.Threading.Tasks;
 
 namespace BankingManagementSystem.API.Controllers
 {
@@ -8,11 +10,11 @@ namespace BankingManagementSystem.API.Controllers
     [ApiController]
     public class CustomerController : ControllerBase
     {
-        private readonly ApplicationContext _dbContext;
+        private readonly IRepositoryWrapper repositoryWrapper;
 
-        public CustomerController(ApplicationContext dbContext)
+        public CustomerController(IRepositoryWrapper _repositoryWrapper)
         {
-            _dbContext = dbContext;
+            repositoryWrapper = _repositoryWrapper;
         }
 
         /// <summary>
@@ -22,7 +24,7 @@ namespace BankingManagementSystem.API.Controllers
         [HttpGet]
         public IActionResult Get()
         {
-            return Ok(_dbContext.Customers);
+            return Ok(repositoryWrapper.Customer.FindAll());
         }
 
         /// <summary>
@@ -33,7 +35,7 @@ namespace BankingManagementSystem.API.Controllers
         [HttpGet("{id}")]
         public IActionResult Get(long id)
         {
-            return Ok(_dbContext.Customers.Find(id));
+            return Ok(repositoryWrapper.Customer.FindByCondition(c => c.Id == id));
         }
 
         /// <summary>
@@ -42,11 +44,11 @@ namespace BankingManagementSystem.API.Controllers
         /// <param name="customer"></param>
         /// <returns></returns>
         [HttpPost]
-        public IActionResult Post(Customer customer)
+        public async Task<IActionResult> Post(Customer customer)
         {
-            _dbContext.Customers.Add(customer);
+            await repositoryWrapper.Customer.CreateAsync(customer);
 
-            _dbContext.SaveChanges();
+            await repositoryWrapper.SaveAsync();
 
             return NoContent();
         }
@@ -58,11 +60,11 @@ namespace BankingManagementSystem.API.Controllers
         /// <param name="customer"></param>
         /// <returns></returns>
         [HttpPut("{id}")]
-        public IActionResult Put(long id, Customer customer)
+        public async Task<IActionResult> Put(long id, Customer customer)
         {
-            _dbContext.Customers.Update(customer);
+            repositoryWrapper.Customer.Update(customer);
 
-            _dbContext.SaveChanges();
+            await repositoryWrapper.SaveAsync();
 
             return NoContent();
         }
