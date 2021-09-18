@@ -39,6 +39,7 @@ namespace BankingManagementSystem
 
             services.AddScoped<IRepositoryWrapper, RepositoryWrapper>();
             services.AddScoped<ICustomerService, CustomerService>();
+            services.AddScoped<ILoanService, LoanService>();
 
             services.AddScoped<ModelValidationAttribute>();
 

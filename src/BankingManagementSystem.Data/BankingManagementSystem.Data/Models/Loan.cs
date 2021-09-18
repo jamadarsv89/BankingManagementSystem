@@ -17,5 +17,7 @@ namespace BankingManagementSystem.Data.Models
         public double Duration { get; set; }
 
         public Customer Customer { get; set; }
+
+        public long CustomerId { get; set; }
     }
 }

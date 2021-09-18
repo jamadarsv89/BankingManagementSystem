@@ -9,30 +9,30 @@ namespace BankingManagementSystem.Data.Repository
 {
     public abstract class RepositoryBase<T> : IRepositoryBase<T> where T : class
     {
-        protected ApplicationContext applicationContext { get; set; }
+        protected ApplicationContext ApplicationContext { get; set; }
         public RepositoryBase(ApplicationContext applicationContext)
         {
-            this.applicationContext = applicationContext;
+            this.ApplicationContext = applicationContext;
         }
         public IQueryable<T> FindAll()
         {
-            return this.applicationContext.Set<T>().AsNoTracking();
+            return this.ApplicationContext.Set<T>().AsNoTracking();
         }
         public IQueryable<T> FindByCondition(Expression<Func<T, bool>> expression)
         {
-            return this.applicationContext.Set<T>().Where(expression).AsNoTracking();
+            return this.ApplicationContext.Set<T>().Where(expression).AsNoTracking();
         }
         public async Task CreateAsync(T entity)
         {
-            await this.applicationContext.Set<T>().AddAsync(entity);
+            await this.ApplicationContext.Set<T>().AddAsync(entity);
         }
         public void Update(T entity)
         {
-            this.applicationContext.Set<T>().Update(entity);
+            this.ApplicationContext.Set<T>().Update(entity);
         }
         public void Delete(T entity)
         {
-            this.applicationContext.Set<T>().Remove(entity);
+            this.ApplicationContext.Set<T>().Remove(entity);
         }
     }
 }
