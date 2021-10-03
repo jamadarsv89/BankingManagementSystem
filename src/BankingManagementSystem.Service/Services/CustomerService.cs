@@ -39,6 +39,11 @@ namespace BankingManagementSystem.Service.Services
             return repositoryWrapper.Customer.FindByCondition(c => c.Id == customerId).ToList().FirstOrDefault();
         }
 
+        public Customer GetCustomerByUserNameAndPassword(string username, string password)
+        {
+            return repositoryWrapper.Customer.FindByCondition(c => c.UserName == username && c.Password == password).ToList().FirstOrDefault();
+        }
+
         public async Task UpdateCustomerInfo(long customerId, Customer customer)
         {
             var currentData = repositoryWrapper.Customer.FindByCondition(c => c.Id == customerId).ToList().FirstOrDefault();

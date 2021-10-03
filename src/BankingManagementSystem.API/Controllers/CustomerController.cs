@@ -3,6 +3,7 @@ using BankingManagementSystem.API.ApiModels.InputModel;
 using BankingManagementSystem.API.ApiModels.OutputModel;
 using BankingManagementSystem.Data.Models;
 using BankingManagementSystem.Service.Interfaces;
+using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.Extensions.Logging;
 using System.Threading.Tasks;
@@ -61,6 +62,7 @@ namespace BankingManagementSystem.API.Controllers
         /// <param name="id"></param>
         /// <param name="customerInputModel"></param>
         /// <returns></returns>
+        [Authorize]
         [HttpPut("UpdateCustomerProfile/{id}")]
         public async Task<IActionResult> Put(long id, CustomerInputModel customerInputModel)
         {

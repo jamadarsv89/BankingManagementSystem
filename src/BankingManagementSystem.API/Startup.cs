@@ -6,6 +6,7 @@ using BankingManagementSystem.Data.Interfaces;
 using BankingManagementSystem.Data.Repository;
 using BankingManagementSystem.Service.Interfaces;
 using BankingManagementSystem.Service.Services;
+using Microsoft.AspNetCore.Authentication.JwtBearer;
 using Microsoft.AspNetCore.Builder;
 using Microsoft.AspNetCore.Diagnostics;
 using Microsoft.AspNetCore.Hosting;
@@ -15,9 +16,11 @@ using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Hosting;
 using Microsoft.Extensions.Logging;
+using Microsoft.IdentityModel.Tokens;
 using Microsoft.OpenApi.Models;
 using Serilog;
 using System.Net;
+using System.Text;
 
 namespace BankingManagementSystem
 {
@@ -62,6 +65,16 @@ namespace BankingManagementSystem
             {
                 c.SwaggerDoc("v1", new OpenApiInfo { Title = "BankingManagementSystem", Version = "v1" });
             });
+
+            services.AddAuthentication(JwtBearerDefaults.AuthenticationScheme).AddJwtBearer(options => options.TokenValidationParameters = new Microsoft.IdentityModel.Tokens.TokenValidationParameters 
+            {
+                ValidateIssuer = true,
+                ValidateAudience = true,
+                ValidateIssuerSigningKey = true,
+                ValidIssuer = Configuration.GetValue<string>("AppSettings:Issuer"),
+                ValidAudience = Configuration.GetValue<string>("AppSettings:Audience"),
+                IssuerSigningKey = new SymmetricSecurityKey(Encoding.UTF8.GetBytes(Configuration.GetValue<string>("AppSettings:IssuerSigningKey")))
+            });
         }
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.
@@ -96,6 +109,8 @@ namespace BankingManagementSystem
             }
 
             app.UseRouting();
+
+            app.UseAuthentication();
 
             app.UseAuthorization();
 

@@ -1,5 +1,6 @@
 ﻿using BankingManagementSystem.Data.Models;
 using BankingManagementSystem.Service.Interfaces;
+using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.Extensions.Logging;
 using System.Threading.Tasks;
@@ -7,6 +8,7 @@ using System.Threading.Tasks;
 namespace BankingManagementSystem.API.Controllers
 {
     [Route("api/[controller]")]
+    [Authorize]
     [ApiController]
     public class LoanController : ControllerBase
     {
@@ -19,6 +21,11 @@ namespace BankingManagementSystem.API.Controllers
             logger = _logger;
         }
 
+        /// <summary>
+        /// Apply for loan
+        /// </summary>
+        /// <param name="loan"></param>
+        /// <returns></returns>
         [HttpPost("ApplyForLoan")]
         public async Task<IActionResult> Post(Loan loan)
         {
@@ -27,6 +34,11 @@ namespace BankingManagementSystem.API.Controllers
             return NoContent();
         }
 
+        /// <summary>
+        /// Get All loans for customer
+        /// </summary>
+        /// <param name="customerId"></param>
+        /// <returns></returns>
         [HttpGet("{customerId}")]
         public IActionResult Get(long customerId)
         {

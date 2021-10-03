@@ -10,5 +10,7 @@ namespace BankingManagementSystem.Service.Interfaces
         Task UpdateCustomerInfo(long customerId, Customer customer);
 
         Customer GetCustomer(long customerId);
+
+        Customer GetCustomerByUserNameAndPassword(string customerId, string password);
     }
 }

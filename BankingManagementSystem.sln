@@ -18,11 +18,11 @@ Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Solution Items", "Solution 
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "BankingManagementSystem.Service", "src\BankingManagementSystem.Service\BankingManagementSystem.Service.csproj", "{B88B3552-1A16-43F8-83B5-ADD3FCBE088A}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "BankingManagementSystem.API.Test", "test\BankingManagementSystem.API.Test\BankingManagementSystem.API.Test.csproj", "{7864AB89-89F6-4004-BF68-00FAF639FA1F}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "BankingManagementSystem.API.Test", "test\BankingManagementSystem.API.Test\BankingManagementSystem.API.Test.csproj", "{7864AB89-89F6-4004-BF68-00FAF639FA1F}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "BankingManagementSystem.Data.Test", "test\BankingManagementSystem.Data.Test\BankingManagementSystem.Data.Test.csproj", "{F0F1725E-FF14-46EA-98E5-92ABE09D7FC7}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "BankingManagementSystem.Data.Test", "test\BankingManagementSystem.Data.Test\BankingManagementSystem.Data.Test.csproj", "{F0F1725E-FF14-46EA-98E5-92ABE09D7FC7}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "BankingManagementSystem.Service.Test", "test\BankingManagementSystem.Service.Test\BankingManagementSystem.Service.Test.csproj", "{30CF6C05-5943-4084-A81A-78A152929DC8}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "BankingManagementSystem.Service.Test", "test\BankingManagementSystem.Service.Test\BankingManagementSystem.Service.Test.csproj", "{30CF6C05-5943-4084-A81A-78A152929DC8}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
