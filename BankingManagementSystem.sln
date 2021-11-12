@@ -9,7 +9,7 @@ Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "src", "src", "{7001C9BA-15D
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "test", "test", "{2B8E9C42-6831-4A62-BBA0-0F2A53B4B06F}"
 EndProject
-Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "BankingManagementSystem.Data", "src\BankingManagementSystem.Data\BankingManagementSystem.Data\BankingManagementSystem.Data.csproj", "{7DEB017B-8837-4469-A40F-78FE40D23A87}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "BankingManagementSystem.Data", "src\BankingManagementSystem.Data\BankingManagementSystem.Data.csproj", "{7DEB017B-8837-4469-A40F-78FE40D23A87}"
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Solution Items", "Solution Items", "{7311D37C-B529-4326-90BB-A71B25FB33D3}"
 	ProjectSection(SolutionItems) = preProject

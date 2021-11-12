@@ -23,7 +23,6 @@
   </ItemGroup>
 
   <ItemGroup>
-    <ProjectReference Include="..\..\src\BankingManagementSystem.Data\BankingManagementSystem.Data\BankingManagementSystem.Data.csproj" />
     <ProjectReference Include="..\..\src\BankingManagementSystem.Service\BankingManagementSystem.Service.csproj" />
   </ItemGroup>
 

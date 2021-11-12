@@ -1,5 +1,6 @@
 ﻿using AutoFixture;
 using AutoFixture.Xunit2;
+using BankingManagementSystem.Data;
 using BankingManagementSystem.Data.Interfaces;
 using BankingManagementSystem.Data.Models;
 using BankingManagementSystem.Data.Repository;
@@ -15,7 +16,7 @@ using System.Linq.Expressions;
 using System.Threading.Tasks;
 using Xunit;
 
-namespace BankingManagementSystem.Data.Test
+namespace BankingManagementSystem.Service.Test
 {
     public class CustomerServiceTest
     {
@@ -26,7 +27,6 @@ namespace BankingManagementSystem.Data.Test
             var customer = fixture.Build<Customer>().Without(c => c.Loans).Create();
             var logger = new Mock<ILogger<CustomerService>>();
             var mockRespositoryWrapper = new Mock<IRepositoryWrapper>();
-            var applicationContext = new Mock<ApplicationContext>();
 
             var myConfiguration = new Dictionary<string, string>
             {
@@ -59,7 +59,6 @@ namespace BankingManagementSystem.Data.Test
             var customer = fixture.Build<Customer>().Without(c => c.Loans).Create();
             var logger = new Mock<ILogger<CustomerService>>();
             var mockRespositoryWrapper = new Mock<IRepositoryWrapper>();
-            var applicationContext = new Mock<ApplicationContext>();
 
             var myConfiguration = new Dictionary<string, string>
             {
@@ -94,7 +93,6 @@ namespace BankingManagementSystem.Data.Test
             var customer = fixture.Build<Customer>().Without(c => c.Loans).Create();
             var logger = new Mock<ILogger<CustomerService>>();
             var mockRespositoryWrapper = new Mock<IRepositoryWrapper>();
-            var applicationContext = new Mock<ApplicationContext>();
 
             var myConfiguration = new Dictionary<string, string>
             {

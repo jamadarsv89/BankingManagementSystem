@@ -10,7 +10,7 @@ using System.Text;
 
 namespace BankingManagementSystem.API.Controllers
 {
-    [Route("api/[controller]")]
+    [Route("[controller]")]
     [ApiController]
     public class AccountController : ControllerBase
     {

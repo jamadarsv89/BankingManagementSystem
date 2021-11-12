@@ -1,5 +1,6 @@
 ﻿using AutoFixture;
 using AutoFixture.Xunit2;
+using BankingManagementSystem.Data;
 using BankingManagementSystem.Data.Interfaces;
 using BankingManagementSystem.Data.Models;
 using BankingManagementSystem.Service.Services;
@@ -14,7 +15,7 @@ using System.Text;
 using System.Threading.Tasks;
 using Xunit;
 
-namespace BankingManagementSystem.Data.Test
+namespace BankingManagementSystem.Service.Test
 {
     public class LoanServiceTest
     {
@@ -33,9 +34,9 @@ namespace BankingManagementSystem.Data.Test
 
             mockRespositoryWrapper.Setup(r => r.Loan).Returns(mockLoanRespository.Object);
 
-            var customerService = new LoanService(mockRespositoryWrapper.Object, logger.Object);
+            var loanService = new LoanService(mockRespositoryWrapper.Object, logger.Object);
 
-            await customerService.ApplyForLoan(loan);
+            await loanService.ApplyForLoan(loan);
 
             mockRespositoryWrapper.Verify(r => r.Loan.CreateAsync(loan), Times.Once);
         }

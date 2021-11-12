@@ -21,7 +21,6 @@
   </ItemGroup>
 
   <ItemGroup>
-    <ProjectReference Include="..\BankingManagementSystem.Data\BankingManagementSystem.Data\BankingManagementSystem.Data.csproj" />
     <ProjectReference Include="..\BankingManagementSystem.Service\BankingManagementSystem.Service.csproj" />
   </ItemGroup>
 

@@ -7,7 +7,7 @@ using System.Threading.Tasks;
 
 namespace BankingManagementSystem.API.Controllers
 {
-    [Route("api/[controller]")]
+    [Route("[controller]")]
     [Authorize]
     [ApiController]
     public class LoanController : ControllerBase
