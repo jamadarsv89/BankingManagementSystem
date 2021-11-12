@@ -8,15 +8,17 @@ Technology Stack Used
 - .Net 5
 - Entity Framework Core with Code First Apporach
 - ASP.NET Core Web API
+- Xunit for unit tests
 
 Best Practices
 - Layered architecture
 - Used repository pattern with Unit of work pattern
 - Automapper
-- Serilog for loagging
+- Serilog for logging
 - Rijndael Cipher for encryption of password
 - APIs are protected using Jwt Bearer token based authentication
 - Automapper used for mapping property of different class types
 - Used global exception handler
 - Used attribute class for global level model validation
 - Used annotation based model validation
+- Used TDD (using Xunit)
